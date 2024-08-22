@@ -1,6 +1,4 @@
-import sys
 from dir_maker_cli.input_parser.simple_arg_parser import SimpleArgParser
-from unittest.mock import patch
 from dir_maker_cli.models.command import Command
 
 

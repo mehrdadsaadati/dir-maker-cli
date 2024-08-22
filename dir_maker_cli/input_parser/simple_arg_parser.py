@@ -16,6 +16,8 @@ class SimpleArgParser(InputParser):
                     return Command(int(range_to), int(range_from), container_dir)
         except ValueError as e:
             print("Invalid input (not a number):", e)
+
+        print("Failed to read the input:", args)
         return None
 
     def help(self) -> str:

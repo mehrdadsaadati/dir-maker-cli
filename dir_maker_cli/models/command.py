@@ -1,6 +1,6 @@
 class Command:
     def __init__(
-        self, range_to: int, range_from: int = 0, container_dir: str = None
+        self, range_to: int, range_from: int = 1, container_dir: str = None
     ) -> None:
         self.range_from = range_from
         self.range_to = range_to
