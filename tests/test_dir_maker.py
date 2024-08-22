@@ -1,5 +1,4 @@
-import pytest
-from dir_maker_cli.dir_maker.dir_maker import create_directories
+from dir_maker_cli.dir_maker.cli import create_directories
 from dir_maker_cli.models.command import Command
 import os
 import shutil

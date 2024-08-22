@@ -14,4 +14,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-dir_maker_cli = "dir_maker_cli.main:main"
+dir_maker_cli = "dir_maker_cli.cli:main"
