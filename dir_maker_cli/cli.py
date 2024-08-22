@@ -1,14 +1,10 @@
-import sys
 from dir_maker_cli.input_parser.simple_arg_parser import SimpleArgParser
 
 
 def main():
-    # read input from args
-    input = sys.argv[1:]
-
     # create a parser to parse input data
     parser = SimpleArgParser()
-    command = parser.parse(input)
+    command = parser.parse()
     if command is not None:
         # pass these params to dir_maker
         pass

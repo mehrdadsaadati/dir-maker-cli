@@ -1,10 +1,11 @@
 from dir_maker_cli.models.command import Command
-from dir_maker_cli.input_parser.input_parser import InputParser
+import sys
 
 
-class SimpleArgParser(InputParser):
-    def parse(self, args: list[str]) -> Command | None:
+class SimpleArgParser:
+    def parse(self) -> Command | None:
         try:
+            args = sys.argv[1:]
             match args:
                 case [range_to]:
                     return Command(int(range_to))
