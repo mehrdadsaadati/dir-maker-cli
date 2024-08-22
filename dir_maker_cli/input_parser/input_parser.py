@@ -4,7 +4,7 @@ from dir_maker_cli.models.command import Command
 
 class InputParser(ABC):
     @abstractmethod
-    def parse(self) -> Command | None:
+    def parse(self, args: list[str]) -> Command | None:
         raise NotImplementedError("parse() must be implemented")
 
     @abstractmethod
