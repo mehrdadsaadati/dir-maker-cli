@@ -1,5 +1,8 @@
 from dir_maker_cli.models.command import Command
+from dir_maker_cli import get_logger
 import os
+
+logger = get_logger(__name__)
 
 
 def create_directories(target_path: str, command: Command):
@@ -20,9 +23,20 @@ def create_directories(target_path: str, command: Command):
         if command.container_dir is None
         else os.path.join(target_path, command.container_dir)
     )
+    logger.info(f"Base directory path: {base_path}")
+
+    count = 0
     # iterate from range_from to range_to
     # range_to is inclusive so we iterate one step further in for loop to cover it
     for i in range(command.range_from, command.range_to + 1):
-        dir_path = os.path.join(base_path, f"{i}")
-        # create directories, ignoring if it exists there beforehand
-        os.makedirs(dir_path, exist_ok=True)
+        try:
+            dir_path = os.path.join(base_path, f"{i}")
+            # create directories, ignoring if it exists there beforehand
+            os.makedirs(dir_path, exist_ok=True)
+            logger.info(f"Created {dir_path}")
+            count += 1
+        except Exception as e:
+            logger.error(f"Failed to create directory {dir_path}: {e}")
+            pass
+
+    logger.info(f"Created {count} directories")
